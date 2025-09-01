@@ -1,4 +1,8 @@
+import os
+import time
+
 running = True
+tick = 0.5
 board_size = 15
 wall = "#"
 
@@ -20,9 +24,21 @@ def board_display():
         print(" ".join(row))
 
 
+def move_right():
+    for i in range(board_size):
+        board[4][i] = "@"
+
+
+def clear_term():
+    time.sleep(tick)
+    os.system("clear")
+
+
 if __name__ == "__main__":
     while running:
+        move_right()
         board_display()
+        clear_term()
 
 # Outcome
 """
