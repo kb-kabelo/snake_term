@@ -1,0 +1,12 @@
+##[pylyzer] failed /home/lekay/duck/slytherin/snake/main.py 1756711946 831
+.board_size: {15}
+.wall: {"#"}
+.init_board: Never
+.board_display: () -> NoneType
+
+
+
+
+
+
+
