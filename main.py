@@ -12,7 +12,7 @@ board = [
     [" " for _ in range(board_size)] for _ in range(board_size)
 ]  # 15*15 board of " "
 
-snake = [[2, 2], [3, 2], [4, 2]]
+snake = [[3, 2], [4, 2], [5, 2]]
 
 
 def board_display():
@@ -26,22 +26,36 @@ def board_display():
         print(" ".join(row))
 
 
-def move_right():
-    for y in range(len(snake)):
-        for x in range(len(snake[y])):
-            board[x][y] = "head"
-            board[x][y + 1] = "head"
-            board[x][y] = " "
+def move_snake_right():
+    head_x = snake[-1][0] + 1  # increasing x by 1
+    head_y = snake[-1][1]  # y stays the sname
+
+    new_head = [head_x, head_y]
+
+    snake.append(new_head)
+
+    snake.pop(0)
+
+
+def draw_snake():
+    for segment in snake:
+        x, y = segment
+        board[y][x] = "@"
 
 
 def clear_term():
     time.sleep(tick)
     os.system("clear")
 
+    for row in range(1, board_size - 1):
+        for col in range(1, board_size - 1):
+            board[row][col] = " "
+
 
 if __name__ == "__main__":
     while running:
-        move_right()
+        move_snake_right()
+        draw_snake()
         board_display()
         clear_term()
 
@@ -63,4 +77,32 @@ move something
 food 
 classes
 done
+
+
+
+Snake state:
+
+Draw snake:
+
+Clear board (except walls).
+
+Place "@" at each snake coordinate.
+
+Print the board.
+
+Move snake (right first):
+
+Take head, add +1 to x-coordinate → new head.
+
+Append new head to snake list.
+
+Remove first element (tail).
+
+Loop:
+
+Repeat: clear board → redraw walls → place snake → print → sleep/clear.
+
+Next:
+
+Once this works, add input, food, growth, collisions later.
 """

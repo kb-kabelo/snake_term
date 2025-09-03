@@ -1,4 +1,4 @@
-##[pylyzer] failed /home/lekay/duck/slytherin/snake/main.py 1756807493 1085
+##[pylyzer] failed /home/lekay/duck/slytherin/snake/main.py 1756894075 1809
 .os: Never
 
 .time: Never
@@ -7,11 +7,14 @@
 .tick: {0.5}
 .board_size: {15}
 .wall: {"#"}
+.head: {"@"}
 .board: Never
-.snake: global::List!(global::List!({4, 3, 2}, 2), 3)
+.snake: global::List!(global::List!({3, 4, 2, 5}, 2), 3)
 .board_display: () -> NoneType
-.move_right: () -> NoneType
+.move_snake_right: () -> NoneType
+.draw_snake: () -> NoneType
 .clear_term: () -> NoneType
+
 
 
 
