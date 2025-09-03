@@ -1,16 +1,18 @@
 import os
 import time
 
+# global var
 running = True
 tick = 0.5
 board_size = 15
 wall = "#"
+head = "@"
 
 board = [
     [" " for _ in range(board_size)] for _ in range(board_size)
 ]  # 15*15 board of " "
 
-board[2][2] = "@"  # Random point for vibes
+snake = [[2, 2], [3, 2], [4, 2]]
 
 
 def board_display():
@@ -25,8 +27,11 @@ def board_display():
 
 
 def move_right():
-    for i in range(board_size):
-        board[4][i] = "@"
+    for y in range(len(snake)):
+        for x in range(len(snake[y])):
+            board[x][y] = "head"
+            board[x][y + 1] = "head"
+            board[x][y] = " "
 
 
 def clear_term():
